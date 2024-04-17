@@ -1,0 +1,74 @@
+[
+{
+    "model": "lms.lesson",
+    "pk": 1,
+    "fields": {
+        "title": "Первое знакомство",
+        "description": "Основы языка Python",
+        "created_at": "2024-04-17T04:14:07.820Z",
+        "updated_at": "2024-04-17T04:14:07.820Z",
+        "preview": "",
+        "course": 1
+    }
+},
+{
+    "model": "lms.lesson",
+    "pk": 2,
+    "fields": {
+        "title": "Первое знакомство",
+        "description": "Основы языка Golang",
+        "created_at": "2024-04-17T04:14:28.272Z",
+        "updated_at": "2024-04-17T04:14:28.272Z",
+        "preview": "",
+        "course": 2
+    }
+},
+{
+    "model": "lms.lesson",
+    "pk": 3,
+    "fields": {
+        "title": "Подготовка",
+        "description": "Установка окружения",
+        "created_at": "2024-04-17T04:15:16.845Z",
+        "updated_at": "2024-04-17T04:15:16.845Z",
+        "preview": "",
+        "course": 2
+    }
+},
+{
+    "model": "lms.lesson",
+    "pk": 4,
+    "fields": {
+        "title": "Подготовка",
+        "description": "Установка окружения",
+        "created_at": "2024-04-17T04:15:20.378Z",
+        "updated_at": "2024-04-17T04:15:20.378Z",
+        "preview": "",
+        "course": 1
+    }
+},
+{
+    "model": "lms.lesson",
+    "pk": 5,
+    "fields": {
+        "title": "Синтаксис",
+        "description": "Синтаксис",
+        "created_at": "2024-04-17T04:16:18.973Z",
+        "updated_at": "2024-04-17T04:16:18.973Z",
+        "preview": "",
+        "course": 1
+    }
+},
+{
+    "model": "lms.lesson",
+    "pk": 6,
+    "fields": {
+        "title": "Синтаксис",
+        "description": "Синтаксис",
+        "created_at": "2024-04-17T04:16:22.770Z",
+        "updated_at": "2024-04-17T04:16:22.770Z",
+        "preview": "",
+        "course": 2
+    }
+}
+]

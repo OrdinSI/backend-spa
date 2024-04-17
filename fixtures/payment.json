@@ -1,0 +1,26 @@
+[
+{
+    "model": "users.payment",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "course": 2,
+        "lesson": null,
+        "amount": 535.56,
+        "method": "transfer",
+        "created_at": "2024-04-17T04:48:16.300Z"
+    }
+},
+{
+    "model": "users.payment",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "course": null,
+        "lesson": 2,
+        "amount": 5350.56,
+        "method": "cash",
+        "created_at": "2024-04-17T04:49:18.797Z"
+    }
+}
+]
