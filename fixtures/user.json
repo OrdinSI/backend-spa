@@ -1,0 +1,42 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$XVu1Sf1J5dW4pde3cx1ChD$5VvDcRNjqrAbGJN9QkKWhBFGcsW8AphNIulFcnyOon0=",
+        "last_login": null,
+        "is_superuser": true,
+        "first_name": "admin",
+        "last_name": "admin",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-04-17T04:18:34.665Z",
+        "email": "admin@lockalhost",
+        "phone": null,
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$NjiW4ePDatwjgfLhhPUcXU$rSDgBNbcdBDQ/Iem66ro1SBMtAnnt9jpe8jtPjCLItE=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-04-17T04:32:02.887Z",
+        "email": "osi@maynitek.ru",
+        "phone": null,
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
