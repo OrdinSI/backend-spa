@@ -18,6 +18,7 @@ class CourseSerializer(serializers.ModelSerializer):
 
     count_lessons = serializers.SerializerMethodField()
     lessons = LessonSerializer(many=True, read_only=True)
+    subscription = serializers.SerializerMethodField()
 
     class Meta:
         model = Course
@@ -27,3 +28,7 @@ class CourseSerializer(serializers.ModelSerializer):
     @staticmethod
     def get_count_lessons(obj):
         return obj.lessons.count()
+
+    @staticmethod
+    def get_subscription(obj):
+        return obj.subscriptions.exists()
