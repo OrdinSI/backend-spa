@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from lms.models import Course, Lesson, Subscription
-from lms.paginators import LmsPaginator
+from lms.pagination import LmsPaginator
 from lms.serializers import CourseSerializer, LessonSerializer
 from users.permissions import IsOwner, IsStaff
 
@@ -83,7 +83,7 @@ class LessonDeleteAPIView(generics.DestroyAPIView):
 
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
-    permission_classes = [IsAuthenticated, IsOwner, ~IsStaff]
+    permission_classes = [IsAuthenticated, IsOwner | ~IsStaff]
 
 
 class SubscribeAPIView(APIView):
@@ -95,7 +95,8 @@ class SubscribeAPIView(APIView):
 
         course_item = get_object_or_404(Course, id=course_id)
 
-        subs_item = Subscription.objects.filter(user=user, course=course_item).first()
+        subs_item = Subscription.objects.filter(
+            user=user, course=course_item).first()
 
         if subs_item:
             subs_item.delete()
