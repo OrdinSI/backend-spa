@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from lms.models import Course, Lesson
+from lms.validators import DescriptionsValidator
 
 
 class LessonSerializer(serializers.ModelSerializer):
@@ -9,6 +10,7 @@ class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
         fields = "__all__"
+        validators = [DescriptionsValidator(field="description")]
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -20,6 +22,7 @@ class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
         fields = "__all__"
+        validators = [DescriptionsValidator(field="description")]
 
     @staticmethod
     def get_count_lessons(obj):
