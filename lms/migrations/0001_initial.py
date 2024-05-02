@@ -33,7 +33,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(auto_now=True, verbose_name="дата обновления"),
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="дата обновления"),
                 ),
                 (
                     "preview",
@@ -72,7 +73,8 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "updated_at",
-                    models.DateTimeField(auto_now=True, verbose_name="дата обновления"),
+                    models.DateTimeField(
+                        auto_now=True, verbose_name="дата обновления"),
                 ),
                 (
                     "preview",
