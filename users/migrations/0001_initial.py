@@ -29,8 +29,7 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("password", models.CharField(
-                    max_length=128, verbose_name="password")),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
                 (
                     "last_login",
                     models.DateTimeField(
@@ -153,8 +152,7 @@ class Migration(migrations.Migration):
                 (
                     "method",
                     models.CharField(
-                        choices=[("transfer", "перевод"),
-                                 ("cash", "наличные")],
+                        choices=[("transfer", "перевод"), ("cash", "наличные")],
                         max_length=35,
                         verbose_name="метод оплаты",
                     ),

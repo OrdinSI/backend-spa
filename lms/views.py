@@ -95,8 +95,7 @@ class SubscribeAPIView(APIView):
 
         course_item = get_object_or_404(Course, id=course_id)
 
-        subs_item = Subscription.objects.filter(
-            user=user, course=course_item).first()
+        subs_item = Subscription.objects.filter(user=user, course=course_item).first()
 
         if subs_item:
             subs_item.delete()

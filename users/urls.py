@@ -18,10 +18,9 @@ app_name = UsersConfig.name
 
 
 urlpatterns = [
-    path("payment/create/", PaymentCreateAPIView.as_view(), name="lesson-create"),
-    path("payment/", PaymentListAPIView.as_view(), name="lesson-list"),
-    path("payment/<int:pk>/", PaymentRetrieveAPIView.as_view(),
-         name="lesson-retrieve"),
+    path("payment/create/", PaymentCreateAPIView.as_view(), name="payment-create"),
+    path("payment/", PaymentListAPIView.as_view(), name="payment-list"),
+    path("payment/<int:pk>/", PaymentRetrieveAPIView.as_view(), name="payment-retrieve"),
     path(
         "token/",
         TokenObtainPairView.as_view(permission_classes=(AllowAny,)),
@@ -32,7 +31,7 @@ urlpatterns = [
         TokenRefreshView.as_view(permission_classes=(AllowAny,)),
         name="token_refresh",
     ),
-    path("users/create/", UserCreateAPIView.as_view(), name="create-user"),
+    path("users/create/", UserCreateAPIView.as_view(), name="user-create"),
     path("users/", UserListAPIView.as_view(), name="user-list"),
     path("users/<int:pk>/", UserRetrieveAPIView.as_view(), name="user-retrieve"),
     path("users/delete/<int:pk>/", UserDeleteAPIView.as_view(), name="user-delete"),
