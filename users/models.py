@@ -50,6 +50,7 @@ class Payment(models.Model):
         **settings.NULLABLE,
     )
     session_id = models.CharField(max_length=250, verbose_name="идентификатор сессии", **settings.NULLABLE)
+    product_id = models.CharField(max_length=250, verbose_name="идентификатор продукта", **settings.NULLABLE)
     url = models.URLField(max_length=400, verbose_name="ссылка", **settings.NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
 
