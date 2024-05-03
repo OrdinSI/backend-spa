@@ -64,6 +64,7 @@ class PaymentCreateAPIView(generics.CreateAPIView):
         product_id = create_product(product_name)
         price = create_price(payment.amount, product_id)
         session_id, session_url = create_session(price)
+        payment.product_id = product_id
         payment.session_id = session_id
         payment.url = session_url
         payment.save()
