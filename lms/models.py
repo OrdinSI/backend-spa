@@ -8,10 +8,8 @@ class Course(models.Model):
 
     title = models.CharField(max_length=150, verbose_name="название")
     description = models.TextField(verbose_name="описание")
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="дата создания")
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="дата обновления")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="дата обновления")
     preview = models.ImageField(
         upload_to="courses/previews", verbose_name="превью", **settings.NULLABLE
     )
@@ -32,15 +30,12 @@ class Lesson(models.Model):
 
     title = models.CharField(max_length=150, verbose_name="название")
     description = models.TextField(verbose_name="описание")
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="дата создания")
-    updated_at = models.DateTimeField(
-        auto_now=True, verbose_name="дата обновления")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
+    updated_at = models.DateTimeField(auto_now=True, verbose_name="дата обновления")
     preview = models.ImageField(
         upload_to="lessons/previews", verbose_name="превью", **settings.NULLABLE
     )
-    course = models.ForeignKey(
-        Course, on_delete=models.CASCADE, related_name="lessons")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="lessons")
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **settings.NULLABLE
     )
@@ -65,8 +60,7 @@ class Subscription(models.Model):
         related_name="subscriptions",
         verbose_name="курс",
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name="дата создания")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
 
     def __str__(self):
         return f"{self.user} - {self.course}"

@@ -6,6 +6,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from users.models import Payment, User
 from users.permissions import IsOwner
 from users.serializers import PaymentSerializer, UserSerializer
+from users.services import create_price, create_product, create_session
 
 
 class UserCreateAPIView(generics.CreateAPIView):
@@ -55,6 +56,17 @@ class PaymentCreateAPIView(generics.CreateAPIView):
     """Model CreateAPIView for Payment."""
 
     serializer_class = PaymentSerializer
+    queryset = Payment.objects.all()
+
+    def perform_create(self, serializer):
+        payment = serializer.save(user=self.request.user)
+        product_name = payment.course.title if payment.course.title else payment.lesson.title
+        product_id = create_product(product_name)
+        price = create_price(payment.amount, product_id)
+        session_id, session_url = create_session(price)
+        payment.session_id = session_id
+        payment.url = session_url
+        payment.save()
 
 
 class PaymentListAPIView(generics.ListAPIView):

@@ -30,18 +30,15 @@ class LessonTestCase(APITestCase):
         self.assertEqual(data.get("title"), self.lesson.title)
 
     def test_lesson_create(self):
-        data = {"title": "test2", "description": "test2",
-                "course": self.course.id}
+        data = {"title": "test2", "description": "test2", "course": self.course.id}
         response = self.client.post("/lms/lesson/create/", data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
         self.assertEqual(Lesson.objects.count(), 2)
 
     def test_lesson_update(self):
-        data = {"title": "test3", "description": "test3",
-                "course": self.course.id}
-        response = self.client.patch(
-            f"/lms/lesson/update/{self.lesson.id}/", data)
+        data = {"title": "test3", "description": "test3", "course": self.course.id}
+        response = self.client.patch(f"/lms/lesson/update/{self.lesson.id}/", data)
         data_r = response.json()
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(data_r.get("title"), data.get("title"))
@@ -68,12 +65,10 @@ class SubscriptionTestCase(APITestCase):
         self.assertEqual(response_create.status_code, status.HTTP_200_OK)
         self.assertEqual(Subscription.objects.count(), 1)
 
-        self.assertEqual(
-            response_create.data["message"], "Вы подписались на курс")
+        self.assertEqual(response_create.data["message"], "Вы подписались на курс")
 
         response_delete = self.client.post("/lms/subscribe/", data)
         self.assertEqual(response_delete.status_code, status.HTTP_200_OK)
         self.assertEqual(Subscription.objects.count(), 0)
 
-        self.assertEqual(
-            response_delete.data["message"], "Вы отписались от курса")
+        self.assertEqual(response_delete.data["message"], "Вы отписались от курса")
