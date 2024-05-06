@@ -38,9 +38,6 @@ class CourseViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    def perform_update(self, serializer):
-        course = serializer.save()
-
 
 class LessonCreateAPIView(generics.CreateAPIView):
     """APIView for creating Lesson."""
