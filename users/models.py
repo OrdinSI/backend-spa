@@ -29,7 +29,9 @@ class User(AbstractUser):
 class Payment(models.Model):
     """Model definition for Payment."""
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="пользователь", **settings.NULLABLE)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name="пользователь", **settings.NULLABLE
+    )
     course = models.ForeignKey(
         "lms.Course",
         on_delete=models.CASCADE,
@@ -49,8 +51,12 @@ class Payment(models.Model):
         verbose_name="метод оплаты",
         **settings.NULLABLE,
     )
-    session_id = models.CharField(max_length=250, verbose_name="идентификатор сессии", **settings.NULLABLE)
-    product_id = models.CharField(max_length=250, verbose_name="идентификатор продукта", **settings.NULLABLE)
+    session_id = models.CharField(
+        max_length=250, verbose_name="идентификатор сессии", **settings.NULLABLE
+    )
+    product_id = models.CharField(
+        max_length=250, verbose_name="идентификатор продукта", **settings.NULLABLE
+    )
     url = models.URLField(max_length=400, verbose_name="ссылка", **settings.NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
 

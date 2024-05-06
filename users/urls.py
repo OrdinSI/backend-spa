@@ -20,7 +20,9 @@ app_name = UsersConfig.name
 urlpatterns = [
     path("payment/create/", PaymentCreateAPIView.as_view(), name="payment-create"),
     path("payment/", PaymentListAPIView.as_view(), name="payment-list"),
-    path("payment/<int:pk>/", PaymentRetrieveAPIView.as_view(), name="payment-retrieve"),
+    path(
+        "payment/<int:pk>/", PaymentRetrieveAPIView.as_view(), name="payment-retrieve"
+    ),
     path(
         "token/",
         TokenObtainPairView.as_view(permission_classes=(AllowAny,)),

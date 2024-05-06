@@ -1,3 +1,5 @@
+from django.utils import timezone
+
 from rest_framework import generics, viewsets
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
@@ -36,6 +38,9 @@ class CourseViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+    def perform_update(self, serializer):
+        course = serializer.save()
+
 
 class LessonCreateAPIView(generics.CreateAPIView):
     """APIView for creating Lesson."""
@@ -44,7 +49,10 @@ class LessonCreateAPIView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated, ~IsStaff]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        instance = serializer.save(owner=self.request.user)
+        course = instance.course
+        course.updated_at = timezone.now()
+        course.save()
 
 
 class LessonListAPIView(generics.ListAPIView):
@@ -76,6 +84,12 @@ class LessonUpdateAPIView(generics.UpdateAPIView):
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
     permission_classes = [IsAuthenticated, IsStaff | IsOwner]
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+        course = instance.course
+        course.updated_at = timezone.now()
+        course.save()
 
 
 class LessonDeleteAPIView(generics.DestroyAPIView):

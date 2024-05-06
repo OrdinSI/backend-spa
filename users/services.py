@@ -14,9 +14,7 @@ def create_product(name):
 def create_price(amount, product_id):
     """Create price."""
     price = stripe.Price.create(
-        unit_amount_decimal=amount * 100,
-        currency="rub",
-        product=product_id
+        unit_amount_decimal=amount * 100, currency="rub", product=product_id
     )
     return price
 
@@ -32,6 +30,5 @@ def create_session(price):
         ],
         mode="payment",
         success_url="http://127.0.0.1:8000/",
-
     )
     return session.get("id"), session.get("url")
