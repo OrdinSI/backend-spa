@@ -7,7 +7,7 @@ class Course(models.Model):
     """Model definition for Course."""
 
     title = models.CharField(max_length=150, verbose_name="название")
-    description = models.TextField(verbose_name="описание")
+    description = models.TextField(verbose_name="описание", **settings.NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="дата обновления")
     preview = models.ImageField(
@@ -29,7 +29,7 @@ class Lesson(models.Model):
     """Model definition for Lesson."""
 
     title = models.CharField(max_length=150, verbose_name="название")
-    description = models.TextField(verbose_name="описание")
+    description = models.TextField(verbose_name="описание", **settings.NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="дата обновления")
     preview = models.ImageField(
